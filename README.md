@@ -1,5 +1,4 @@
 # Redwood
->**HEADS UP:** RedwoodJS is _NOT_ ready for use in Production. It relies heavily on Prisma2, which is currently in testing with an expected production release coming soon. See status at ["Is Prisma2 Ready?"](https://isprisma2ready.com)
 
 ## Getting Started
 - [Redwoodjs.com](https://redwoodjs.com): home to all things RedwoodJS.
@@ -37,16 +36,4 @@ yarn rw upgrade
 
 ### Database
 
-We're using [Prisma2](https://github.com/prisma/prisma2), a modern DB toolkit to query, migrate and model your database.
-
-Prisma2 is [not ready for production](https://isprisma2ready.com) at the moment.
-
-To create a development database:
-
-```terminal
-yarn redwood db up
-```
-
-This will read the schema definition in `api/prisma/schema.prisma` and generate a sqlite database in `api/prisma/dev.db`
-
-If you've made changes to the schema run `yarn redwood db save` to generate a migration, and `yarn redwood db up` to apply the migration/ generate a new ORM client.
+By default Redwood uses [Prisma2](https://github.com/prisma/prisma2) to query, migrate and model your database. It works with [a variety of modern databases](https://www.prisma.io/docs/more/supported-databases) including Postgres, MySQL, MariaDB, SQLite, and AWS Aurora. They are continuing to expand this list, but as of the time of this writing they do not support FaunaDB. We will start by removing the `prisma` folder from our `api/src` folder. We also will delete all the code in `db.js` which is instantiating the Prisma client. We will be using the Fauna client in its place.
