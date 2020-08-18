@@ -1,0 +1,9 @@
+{
+  "name": "api",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@redwoodjs/api": "^0.15.3",
+    "faunadb": "^2.14.2"
+  }
+}
