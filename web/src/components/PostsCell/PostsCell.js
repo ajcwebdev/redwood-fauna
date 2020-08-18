@@ -7,7 +7,7 @@ export const QUERY = gql`
 `
 export const Loading = () => <div>Loading posts...</div>
 export const Empty = () => <div>No posts yet!</div>
-export const Failure = ({ message }) => <div>Error: {message}</div>
+export const Failure = ({ error }) => <div>Error: {error.message}</div>
 export const Success = ({ posts }) => {
   return (
     <ul>
