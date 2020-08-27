@@ -1,8 +1,16 @@
-import { query as q } from "faunadb"
-import { db } from 'src/lib/db'
+import { request } from 'src/lib/db'
+import { gql } from 'graphql-request'
 
-export const posts = () => {
-  return db.query(q.Map(
-    q.Paginate(q.Match(q.Index("all_posts"))),
-    q.Lambda("postRef", q.Get(q.Var("postRef")))))
+export const posts = async () => {
+  const query = gql`{
+    posts {
+      data {
+        title
+      }
+    }
+  }`
+
+  const data = await request(query, 'https://graphql.fauna.com/graphql')
+
+  return data['posts']
 }
