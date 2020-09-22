@@ -8,6 +8,7 @@ export const request = async (query = {}) => {
       authorization: 'Bearer ' + process.env.FAUNADB_SECRET
     },
   })
+
   try {
     return await graphQLClient.request(query)
   } catch (error) {
