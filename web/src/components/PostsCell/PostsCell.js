@@ -11,7 +11,9 @@ export const Loading = () => <div>Loading posts...</div>
 export const Empty = () => <div>No posts yet!</div>
 export const Failure = ({ error }) => <div>Error: {error.message}</div>
 export const Success = ({ posts }) => {
+
   const {data} = posts
+
   return (
     <ul>
       {data.map(post => (
@@ -20,3 +22,4 @@ export const Success = ({ posts }) => {
     </ul>
   )
 }
+
